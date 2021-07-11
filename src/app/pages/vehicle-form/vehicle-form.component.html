@@ -1,0 +1,62 @@
+<div fxLayout="column" class="outer">
+    <div>
+        <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+            <span>Vehicle Database</span>
+            <button mat-icon-button (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+            </button>
+        </mat-toolbar>
+    </div>
+    <div fxFlex *ngIf="!isUser">
+        <div style="margin: 20px" fxLayout="row" fxLayoutAlign="space-between center">
+            <h1>Add new vehicle</h1>
+            <button mat-mini-fab (click)="showVehicles()">
+                <mat-icon>list</mat-icon>
+            </button>
+        </div>
+        <div style="margin: 20px;">
+            <form [formGroup]="vehicleForm">
+                <mat-form-field>
+                    <input matInput formControlName="registration" placeholder="Registration No.">
+                    <mat-hint>*Required</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="owner" placeholder="Name of owner">
+                    <mat-hint>*Required</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="engineNumber" placeholder="Engine No.">
+                    <mat-hint>*Required</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="chassisNumber" placeholder="Chassis No.">
+                    <mat-hint>*Required</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Date of registration</mat-label>
+                    <input matInput [matDatepicker]="dateOfRegistration" formControlName="dateOfRegistration">
+                    <mat-datepicker-toggle matSuffix [for]="dateOfRegistration"></mat-datepicker-toggle>
+                    <mat-datepicker #dateOfRegistration></mat-datepicker>
+                    <mat-hint>*Required</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Date of expiry</mat-label>
+                    <input matInput [matDatepicker]="dateOfExpiry" formControlName="dateOfExpiry">
+                    <mat-datepicker-toggle matSuffix [for]="dateOfExpiry"></mat-datepicker-toggle>
+                    <mat-datepicker #dateOfExpiry></mat-datepicker>
+                    <mat-hint>*Required</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="address" placeholder="Owner's Address">
+                    <mat-hint>*Required</mat-hint>
+                </mat-form-field>
+                <div class="vspace"></div>
+                <p style="text-align: right;">
+                    <button mat-raised-button color="primary" (click)="saveVehicle()">Save Details</button>
+                    &nbsp;
+                    <button mat-raised-button color="warn" (click)="showVehicles()">Cancel</button>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

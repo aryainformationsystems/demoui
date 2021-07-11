@@ -1,0 +1,39 @@
+<div fxLayout="column" class="outer">
+    <div>
+        <mat-toolbar color="primary">
+            <span>Vehicle Database</span>
+        </mat-toolbar>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" fxFlex>
+        <mat-card>
+            <h1>Sign Up</h1>
+            <form [formGroup]="signUpForm">
+                <mat-form-field>
+                    <input matInput placeholder="Full Name" autocomplete="off" formControlName="name">
+                    <mat-hint>*Required</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Username" autocomplete="off" formControlName="username">
+                    <mat-hint>*Required</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Password" autocomplete="off"
+                        formControlName="password">
+                    <mat-hint>*Required</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Retype Password" autocomplete="off"
+                        formControlName="retypePassword">
+                    <mat-hint>*Required</mat-hint>
+                </mat-form-field>
+                <div class="vspace"></div>
+                <p>
+                    <button mat-raised-button color="primary" (click)="register()">Register</button>
+                </p>
+            </form>
+            <p>
+                Already have an account? <a routerLink="/login">Login here</a>
+            </p>
+        </mat-card>
+    </div>
+</div>
