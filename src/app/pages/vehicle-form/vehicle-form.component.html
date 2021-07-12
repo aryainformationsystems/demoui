@@ -17,7 +17,7 @@
         <div style="margin: 20px;">
             <form [formGroup]="vehicleForm">
                 <mat-form-field>
-                    <input matInput formControlName="registration" placeholder="Registration No.">
+                    <input matInput formControlName="registration" placeholder="Registration No." [readonly]="this.id">
                     <mat-hint>*Required</mat-hint>
                 </mat-form-field>
                 <mat-form-field>

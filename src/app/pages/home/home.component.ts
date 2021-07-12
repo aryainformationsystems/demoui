@@ -15,7 +15,7 @@ import { VehicleService } from 'src/app/services/vehicle.service';
 export class HomeComponent implements AfterViewInit {
   isUser = false;
   dataSource = new MatTableDataSource();
-  displayedColumns = ['registration', 'owner', 'engine', 'chassis', 'date', 'expiry', 'address'];
+  displayedColumns = ['registration', 'owner', 'engine', 'chassis', 'date', 'expiry', 'address', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   count = 0;
 
@@ -86,6 +86,27 @@ export class HomeComponent implements AfterViewInit {
         });
       });
     }
+  }
+
+  openForEditing(registration: string): void {
+    this.router.navigateByUrl(`/edit-vehicle/${registration}`);
+  }
+
+  deleteVehicle(registration: string): void {
+    this.vehicleService.deleteVehicle(registration).subscribe(result => {
+      this.snackBar.open('Vehicle deleted successfully.', 'Close', {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: 'end'
+      });
+      this.fetchAndUpdate();
+    }, err => {
+      this.snackBar.open('Could not delete vehicle. Please contact support.', 'Close', {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: 'end'
+      });
+    });
   }
 
 }

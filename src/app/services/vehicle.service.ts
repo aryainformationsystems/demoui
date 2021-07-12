@@ -35,4 +35,20 @@ export class VehicleService {
     });
   }
 
+  public updateVehicle(registration: string, vehicleDetails: any): Observable<ApiResponse> {
+    return this.httpClient.put<ApiResponse>(`${this.baseUrl}/${registration}`, vehicleDetails, {
+      headers: {
+        'authorization': `Bearer ${localStorage.getItem('authToken')}`
+      }
+    });
+  }
+
+  public deleteVehicle(registration: string): Observable<ApiResponse> {
+    return this.httpClient.delete<ApiResponse>(`${this.baseUrl}/${registration}`, {
+      headers: {
+        'authorization': `Bearer ${localStorage.getItem('authToken')}`
+      }
+    });
+  }
+
 }
