@@ -24,3 +24,20 @@ p, input, button, td, th, div, span, select {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Aller Bold', sans-serif !important;
 }
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+mat-form-field {
+    margin-bottom: 10px;
+}
+
+mat-card-content {
+    padding: 20px;
+}

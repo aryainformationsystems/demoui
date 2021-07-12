@@ -1,31 +1,33 @@
 <div fxLayout="column" class="outer">
-    <div>
+    <div class="mat-elevation-z8">
         <mat-toolbar color="primary">
             <span>Vehicle Database</span>
         </mat-toolbar>
     </div>
     <div fxLayout="row" fxLayoutAlign="center center" fxFlex>
-        <mat-card>
-            <h1>Sign In</h1>
-            <p>Enter your username and password to log in</p>
-            <form [formGroup]="loginForm">
-                <mat-form-field>
-                    <input matInput placeholder="Username" autocomplete="off" formControlName="username">
-                    <mat-hint>*Required</mat-hint>
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput type="password" placeholder="Password" autocomplete="off"
-                        formControlName="password">
-                    <mat-hint>*Required</mat-hint>
-                </mat-form-field>
-                <div class="vspace"></div>
+        <mat-card class="mat-elevation-z8">
+            <mat-card-content>
+                <h1>Sign In</h1>
+                <p>Enter your username and password to log in</p>
+                <form [formGroup]="loginForm">
+                    <mat-form-field>
+                        <input matInput placeholder="Username" autocomplete="off" formControlName="username">
+                        <mat-hint>*Required</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput type="password" placeholder="Password" autocomplete="off"
+                            formControlName="password">
+                        <mat-hint>*Required</mat-hint>
+                    </mat-form-field>
+                    <div class="vspace"></div>
+                    <p>
+                        <button mat-raised-button color="primary" (click)="login()">Login</button>
+                    </p>
+                </form>
                 <p>
-                    <button mat-raised-button color="primary" (click)="login()">Login</button>
+                    New User? <a routerLink="/register">Sign up here</a>
                 </p>
-            </form>
-            <p>
-                New User? <a routerLink="/register">Sign up here</a>
-            </p>
+            </mat-card-content>
         </mat-card>
     </div>
 </div>
